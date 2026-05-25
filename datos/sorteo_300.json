@@ -1,0 +1,1 @@
+{"id":"300","nombre":"Lotería del Eje","fecha":"2026-03-20","valor_billete":10000,"cant_fracciones":5,"cant_billetes":200,"billetes_vendidos":{"0042":{"1":"1091","2":"1091","3":"1091","4":"101","5":"101"},"0099":{}},"estado":"jugado","premios":[{"nombre":"Premio Mayor","valor":500000,"numero_ganador":"0042"},{"nombre":"Seco","valor":80000,"numero_ganador":"0150"}]}

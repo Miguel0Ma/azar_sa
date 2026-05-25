@@ -1,0 +1,23 @@
+[2026-05-19 01:15:57] - Solicitud: Compra Jugador 1091 en Sorteo 205 (Num: 005, Frac: 2) - Resultado: OK
+[2026-05-19 01:38:05] - Solicitud: Crear/Actualizar Sorteo ID: 205 - Resultado: OK
+[2026-05-19 01:38:05] - Solicitud: Agregar premio 'Premio mayor' ($10000) a Sorteo 205 - Resultado: OK
+[2026-05-19 01:44:26] - Solicitud: Crear/Actualizar Sorteo ID: 111 - Resultado: OK
+[2026-05-19 01:44:26] - Solicitud: Ejecución Automática de Sorteo ID: 111 - Resultado: OK - Sorteo Cerrado con Éxito
+[2026-05-19 01:44:26] - Solicitud: Crear/Actualizar Sorteo ID: 222 - Resultado: OK
+[2026-05-19 01:44:26] - Solicitud: Ejecución Automática de Sorteo ID: 222 - Resultado: OK - Sorteo Cerrado con Éxito
+[2026-05-25 04:14:09] - Solicitud: Login Admin: admin - Resultado: OK
+[2026-05-25 04:21:42] - Solicitud: Login Admin: admin - Resultado: OK
+[2026-05-25 04:28:40] - Solicitud: Login Admin: admin - Resultado: OK
+[2026-05-25 04:29:32] - Solicitud: Crear/Actualizar Sorteo ID: 604 - Resultado: OK
+[2026-05-25 04:29:32] - Solicitud: Ejecución Automática de Sorteo ID: 604 - Resultado: OK - Sorteo Cerrado con Éxito
+[2026-05-25 04:40:10] - Solicitud: Compra Jugador 1091 en Sorteo 205 (Num: 0020, Frac: 3) - Resultado: OK
+[2026-05-25 04:40:59] - Solicitud: Compra Jugador 1091 en Sorteo 205 (Num: 0019, Frac: 4) - Resultado: OK
+[2026-05-25 04:41:36] - Solicitud: Compra Jugador 1091 en Sorteo 205 (Num: 0019, Frac: 1) - Resultado: NEGADO - Fracciones insuficientes (Disponibles: 0)
+[2026-05-25 04:43:16] - Solicitud: Devolución Jugador 1091 Sorteo 205 (Num: 0019, Frac: 4) - Resultado: OK
+[2026-05-25 04:54:21] - Solicitud: Login Admin: admin - Resultado: OK
+[2026-05-25 04:54:31] - Solicitud: Eliminar Sorteo ID: 001 - Resultado: NEGADO - Tiene 2 premio(s)
+[2026-05-25 05:06:31] - Solicitud: Login Admin: 1091 - Resultado: NEGADO - El usuario administrador '1091' no existe
+[2026-05-25 05:06:36] - Solicitud: Login Admin: admin - Resultado: OK
+[2026-05-25 05:10:09] - Solicitud: Login Admin: admin - Resultado: OK
+[2026-05-25 05:11:26] - Solicitud: Compra Jugador 1091 en Sorteo 999 (Num: 0020, Frac: 2) - Resultado: OK
+[2026-05-25 05:12:17] - Solicitud: Agregar premio 'KEKE' ($100000) a Sorteo 999 - Resultado: OK

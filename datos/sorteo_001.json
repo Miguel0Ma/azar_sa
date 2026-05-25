@@ -1,0 +1,1 @@
+{"id":"001","nombre":"Lotería de Risaralda","fecha":"2026-08-10","valor_billete":4000,"cant_fracciones":4,"cant_billetes":200,"billetes_vendidos":{},"estado":"pendiente","premios":[{"nombre":"Premio Mayor","valor":500000,"numero_ganador":null},{"nombre":"Seco","valor":100000,"numero_ganador":null}]}

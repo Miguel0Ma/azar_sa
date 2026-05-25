@@ -1,0 +1,1 @@
+{"id":"205","nombre":"Caldas","estado":"pendiente","fecha":"2026-12-24","valor_billete":500,"cant_fracciones":4,"cant_billetes":100,"billetes_vendidos":{"0025":{"1":"101","2":"101"},"005":{"1":"1091","2":"1091"},"0020":{"1":"1091","2":"1091","3":"1091"}},"premios":[{"nombre":"Premio mayor","valor":10000,"numero_ganador":null}]}
