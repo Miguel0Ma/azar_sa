@@ -176,10 +176,10 @@ defmodule ClienteAdmin.Menu do
               end)
             end)
 
-          IO.puts("\n  📋 Compradores de BILLETE COMPLETO:")
+          IO.puts("\n   Compradores de BILLETE COMPLETO:")
           mostrar_clientes(MapSet.to_list(completos))
 
-          IO.puts("\n  📋 Compradores por FRACCIÓN:")
+          IO.puts("\n   Compradores por FRACCIÓN:")
           mostrar_clientes(MapSet.to_list(por_fraccion))
         end
 
@@ -191,11 +191,16 @@ defmodule ClienteAdmin.Menu do
 
   defp mostrar_clientes([]), do: IO.puts("    (ninguno)")
   defp mostrar_clientes(cedulas) do
-    cedulas |> Enum.sort() |> Enum.each(fn cedula ->
+    cedulas
+    |> Enum.map(fn cedula ->
       nombre = case Servidor.Almacenamiento.cargar_jugador(cedula) do
         {:ok, j} -> j.nombre
         _        -> "(sin registro)"
       end
+      {nombre, cedula}
+    end)
+    |> Enum.sort_by(fn {nombre, _} -> String.downcase(nombre) end)
+    |> Enum.each(fn {nombre, cedula} ->
       IO.puts("    • #{nombre} — Cédula: #{cedula}")
     end)
   end

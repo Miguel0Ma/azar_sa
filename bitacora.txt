@@ -25,3 +25,5 @@
 [2026-05-26 15:18:34] - Solicitud: Compra Jugador 1091 en Sorteo 545 (Num: 0011) - Resultado: NEGADO - Número fuera de rango
 [2026-05-26 15:18:47] - Solicitud: Compra Jugador 1091 en Sorteo 545 (Num: 0002, Frac: 2) - Resultado: OK
 [2026-05-26 15:25:23] - Solicitud: Compra Jugador 1091 en Sorteo 545 (Num: 0003, Frac: 2) - Resultado: OK
+[2026-05-26 16:11:05] - Solicitud: Login Admin: admin - Resultado: OK
+[2026-05-26 16:19:45] - Solicitud: Login Admin: admin - Resultado: OK
