@@ -21,3 +21,7 @@
 [2026-05-25 05:10:09] - Solicitud: Login Admin: admin - Resultado: OK
 [2026-05-25 05:11:26] - Solicitud: Compra Jugador 1091 en Sorteo 999 (Num: 0020, Frac: 2) - Resultado: OK
 [2026-05-25 05:12:17] - Solicitud: Agregar premio 'KEKE' ($100000) a Sorteo 999 - Resultado: OK
+[2026-05-26 15:16:36] - Solicitud: Login Admin: admin - Resultado: OK
+[2026-05-26 15:18:34] - Solicitud: Compra Jugador 1091 en Sorteo 545 (Num: 0011) - Resultado: NEGADO - Número fuera de rango
+[2026-05-26 15:18:47] - Solicitud: Compra Jugador 1091 en Sorteo 545 (Num: 0002, Frac: 2) - Resultado: OK
+[2026-05-26 15:25:23] - Solicitud: Compra Jugador 1091 en Sorteo 545 (Num: 0003, Frac: 2) - Resultado: OK

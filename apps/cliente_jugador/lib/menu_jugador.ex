@@ -185,20 +185,56 @@ defmodule ClienteJugador.MenuJugador do
 
   defp comprar(jugador) do
     IO.puts("\n--- COMPRAR BILLETE / FRACCIONES ---")
-    id_sorteo  = IO.gets("ID del sorteo: ")             |> String.trim()
+    id_sorteo   = IO.gets("ID del sorteo: ") |> String.trim()
     num_billete = IO.gets("Número de billete (ej: 0042): ") |> String.trim()
-    fracciones  = IO.gets("Cantidad de fracciones a comprar: ") |> String.trim() |> String.to_integer()
 
-    case Servidor.ServidorSorteo.comprar_billete(id_sorteo, num_billete, jugador.cedula, fracciones) do
-      :ok ->
-        IO.puts("\n✔  Compra exitosa: #{fracciones} fracción(es) del billete ##{num_billete}.")
+    # Cargar el sorteo para saber cuántas fracciones tiene
+    case Servidor.Almacenamiento.cargar_sorteo(id_sorteo) do
       {:error, msg} ->
         IO.puts("\n✘  #{msg}")
-    end
+        jugador_actualizado = recargar_jugador(jugador)
+        menu_jugador(jugador_actualizado)
 
-    # Recargar jugador para tener historial actualizado
-    jugador_actualizado = recargar_jugador(jugador)
-    menu_jugador(jugador_actualizado)
+      {:ok, sorteo} ->
+        precio_billete = sorteo.valor_billete
+        precio_frac    = div(precio_billete, sorteo.cant_fracciones)
+
+        IO.puts("""
+
+          ¿Qué deseas comprar?
+           1. Billete completo  → #{sorteo.cant_fracciones} fracción(es) — $#{precio_billete}
+           2. Fracciones        → $#{precio_frac} c/u
+        """)
+
+        fracciones =
+          case IO.gets("Seleccione (1/2): ") |> String.trim() do
+            "1" ->
+              sorteo.cant_fracciones
+
+            "2" ->
+              IO.gets("Cantidad de fracciones a comprar: ")
+              |> String.trim()
+              |> String.to_integer()
+
+            _ ->
+              IO.puts("Opción inválida, se asumirá 1 fracción.")
+              1
+          end
+
+        case Servidor.ServidorSorteo.comprar_billete(id_sorteo, num_billete, jugador.cedula, fracciones) do
+          :ok ->
+            if fracciones == sorteo.cant_fracciones do
+              IO.puts("\n✔  Compra exitosa: billete completo ##{num_billete} (#{fracciones} fracción(es)) — $#{precio_billete}.")
+            else
+              IO.puts("\n✔  Compra exitosa: #{fracciones} fracción(es) del billete ##{num_billete} — $#{fracciones * precio_frac}.")
+            end
+          {:error, msg} ->
+            IO.puts("\n✘  #{msg}")
+        end
+
+        jugador_actualizado = recargar_jugador(jugador)
+        menu_jugador(jugador_actualizado)
+    end
   end
 
   defp historial(jugador) do

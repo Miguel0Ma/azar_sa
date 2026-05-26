@@ -43,8 +43,30 @@ defmodule Servidor.Almacenamiento do
     path = "datos/sorteo_#{id}.json"
 
     case File.read(path) do
-      {:ok, contenido} -> Jason.decode(contenido, keys: :atoms)
-      {:error, _} -> {:error, "No se encontró el sorteo"}
+      {:ok, contenido} ->
+        case Jason.decode(contenido, keys: :atoms) do
+          {:ok, sorteo} ->
+            # Normalizar billetes_vendidos a claves string para consistencia.
+            # Jason.decode con keys: :atoms convierte TODAS las claves a átomos,
+            # incluso las de billetes_vendidos (ej: :"0025" en vez de "0025"),
+            # lo que rompe las búsquedas que usan string como clave.
+            billetes_normalizados =
+              Map.get(sorteo, :billetes_vendidos, %{})
+              |> Enum.into(%{}, fn {k_billete, fracs} ->
+                fracs_str = Enum.into(fracs, %{}, fn {k_frac, v} ->
+                  {to_string(k_frac), v}
+                end)
+                {to_string(k_billete), fracs_str}
+              end)
+
+            {:ok, %{sorteo | billetes_vendidos: billetes_normalizados}}
+
+          err ->
+            err
+        end
+
+      {:error, _} ->
+        {:error, "No se encontró el sorteo"}
     end
   end
 
